@@ -11,8 +11,10 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/home" />
+            <option value="$PROJECT_DIR$/localrepositoy" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/splash" />
+            <option value="$PROJECT_DIR$/webrepository" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

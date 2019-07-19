@@ -1,1 +1,1 @@
-include ':app', ':splash', ':home', ':navigation', ':core'
+include ':app', ':splash', ':home', ':navigation', ':core', ':localrepositoy', ':webrepository'
