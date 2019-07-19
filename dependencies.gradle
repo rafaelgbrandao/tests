@@ -1,0 +1,17 @@
+def appCompatxVersion = "1.0.2"
+def contraintLayutVersion = "1.1.3"
+def navigationVersion = "2.0.0"
+def koin_version = '2.0.1'
+
+ext.generalDeps = [
+        appcompatx              : "androidx.appcompat:appcompat:$appCompatxVersion",
+        corex                   : "androidx.core:core-ktx:$appCompatxVersion",
+        constraintlayout        : "androidx.constraintlayout:constraintlayout:$contraintLayutVersion",
+        navigation              : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+        navigation_ui           : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+
+        //Dependecie injection
+        koin_androidx           : "org.koin:koin-androidx-viewmodel:$koin_version",
+        koin_kotlin             : "org.koin:koin-core:$koin_version",
+        koin_viewmodel          : "org.koin:koin-android-viewmodel:$koin_version",
+]
