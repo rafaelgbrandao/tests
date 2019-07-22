@@ -1,4 +1,4 @@
-package br.com.gud.baserepositoy;
+package br.com.gud.localrepository;
 
 import android.content.Context;
 

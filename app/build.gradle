@@ -3,15 +3,16 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply from: "../dependencies.gradle"
+apply from: "../version.gradle"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion app.compileSdkVersion
     defaultConfig {
         applicationId "br.com.gud.roomtest"
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        versionCode app.versionCode
+        versionName app.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -61,6 +62,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation project(path: ':localrepositoy')
+    implementation project(path: ':localrepository')
     implementation project(path: ':webrepository')
 }

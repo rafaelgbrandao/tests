@@ -1,21 +1,21 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply from: "../dependencies.gradle"
+apply from: "../version.gradle"
 
 android {
-    compileSdkVersion 28
-
+    compileSdkVersion app.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
 
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        versionCode app.versionCode
+        versionName app.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
+        buildConfigField 'String', 'BASE_URL', '"http://www.brasilcristao.com.br/app/"'
     }
 
     buildTypes {
@@ -35,6 +35,8 @@ dependencies {
     implementation generalDeps.retrofit
     implementation generalDeps.koin_androidx
     implementation generalDeps.koin_kotlin
+    implementation generalDeps.coroutines
+    implementation generalDeps.coroutines_adapter
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

@@ -2,15 +2,17 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply from: "../dependencies.gradle"
+apply from: "../version.gradle"
 
 android {
-    compileSdkVersion 28
-
+    compileSdkVersion app.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
 
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        versionCode app.versionCode
+        versionName app.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -31,6 +33,7 @@ dependencies {
     implementation generalDeps.koin_androidx
     implementation generalDeps.koin_kotlin
     implementation generalDeps.koin_viewmodel
+    implementation generalDeps.coroutines
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
@@ -38,7 +41,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation project(path: ':core')
     implementation project(path: ':navigation')
-    implementation project(path: ':localrepositoy')
+    implementation project(path: ':localrepository')
     implementation project(path: ':webrepository')
 }
 

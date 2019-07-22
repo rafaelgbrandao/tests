@@ -1,12 +1,15 @@
 package br.com.gud.splash.repository
 
-class SplashRepositoryImpl: SplashRepository {
+import br.com.gud.localrepository.update.LocalUpdateRepository
+import kotlinx.coroutines.runBlocking
+
+class SplashRepositoryImpl(private val localRemoteSource: LocalUpdateRepository): SplashRepository {
 
     override fun onSearchForUpdateVersionNumber(): Int {
-        return -1
+        return 15
     }
 
     override fun onSearchForUpdates(): Boolean {
-        return false
+        return runBlocking { localRemoteSource.getContentUpdate() }
     }
 }

@@ -47,9 +47,9 @@ class SplashFragment: BaseFragment() {
                 title = "Nova versão disponível",
                 message = "Deseja atualizar?",
                 positiveButtonText = "Sim",
-                positiveButtonListener = { Toast.makeText(context, "Positive Click", Toast.LENGTH_LONG).show()},
+                positiveButtonListener = { Toast.makeText(context, "Positive Click", Toast.LENGTH_LONG).show() },
                 negativeButtonText = "Não",
-                negativeButtonListener = { Toast.makeText(context, "Negative Click", Toast.LENGTH_LONG).show()}
+                negativeButtonListener = { viewModel.onSearchForUpdate() }
             )
         }
 

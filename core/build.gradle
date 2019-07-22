@@ -2,16 +2,15 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply from: "../dependencies.gradle"
+apply from: "../version.gradle"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion app.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
-
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
