@@ -25,7 +25,7 @@ class MainActivity : BaseActivity() {
                 }
                 NavigationClassNames.FRAGMENT_LOGIN -> {
                     findNavController(R.id.nav_host_fragment)
-                        .navigate(R.id.action_splashFragment_to_homeFragment)
+                        .navigate(R.id.action_splashFragment_to_loginFragment)
                 }
                 else -> {
                     Log.v("Teste", "Ops...nenhuma tela selecionada")

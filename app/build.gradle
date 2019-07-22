@@ -49,7 +49,10 @@ dependencies {
     implementation project(path: ':splash')
     implementation project(path: ':navigation')
     implementation project(path: ':home')
+    implementation project(path: ':login')
     implementation project(path: ':core')
+    implementation project(path: ':localrepository')
+    implementation project(path: ':webrepository')
 
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation generalDeps.appcompatx
@@ -62,6 +65,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation project(path: ':localrepository')
-    implementation project(path: ':webrepository')
 }
