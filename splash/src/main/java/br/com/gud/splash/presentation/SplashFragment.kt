@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import br.com.gud.core.base.BaseFragment
 import br.com.gud.core.extensions.observe
+import br.com.gud.core.helpers.DeviceHelper
 import br.com.gud.navigation.Navigation
 import br.com.gud.navigation.NavigationClassNames
 import br.com.gud.splash.R
@@ -31,7 +32,6 @@ class SplashFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         startObservers()
-        viewModel.onAppSuggestedVersionCheck()
         btnSplashTeste.setOnClickListener {
             Navigation.navigateToFragment(NavigationClassNames.FRAGMENT_HOME)
         }
@@ -60,7 +60,33 @@ class SplashFragment: BaseFragment() {
         }
 
         viewModel.noUpdateFound().observe(this) {
+            validateUser()
             Navigation.navigateToFragment(NavigationClassNames.FRAGMENT_HOME)
         }
+
+        viewModel.navigateToHomeScreen().observe(this) {
+            navigateToHomeScreen()
+        }
+
+        viewModel.navigateToLoginScreen().observe(this) {
+            navigateToLoginScreen()
+        }
+    }
+
+    private fun validateUser() {
+        context?.let {
+            viewModel.onValidateUser(
+                deviceId = DeviceHelper.deviceId(it),
+                appVersion = DeviceHelper.versionName(it)
+            )
+        } ?: navigateToLoginScreen()
+    }
+
+    private fun navigateToLoginScreen() {
+        Navigation.navigateToFragment(NavigationClassNames.FRAGMENT_LOGIN)
+    }
+
+    private fun navigateToHomeScreen() {
+        Navigation.navigateToFragment(NavigationClassNames.FRAGMENT_HOME)
     }
 }

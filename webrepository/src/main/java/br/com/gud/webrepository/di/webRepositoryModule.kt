@@ -5,6 +5,9 @@ import br.com.gud.webrepository.update.WebUpdateRemoteSource
 import br.com.gud.webrepository.infra.ServiceFactory
 import br.com.gud.webrepository.update.WebUpdateRepository
 import br.com.gud.webrepository.update.WebUpdateRepositoryImpl
+import br.com.gud.webrepository.user.WebUserRemoteSource
+import br.com.gud.webrepository.user.WebUserRepository
+import br.com.gud.webrepository.user.WebUserRepositoryImpl
 import com.google.gson.Gson
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
@@ -16,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.net.URL
 import java.util.concurrent.TimeUnit
 
-const val RETROFIT_UPDATE = "Update"
+const val RETROFIT_UPDATE = "Retrofit"
 const val HTTP_TIMEOUT_SECONDS = 30L
 
 val webRepositoryModule = module {
@@ -55,5 +58,12 @@ val webRepositoryModule = module {
         WebUpdateRemoteSource::class.java)
     }
 
+    factory { ServiceFactory.createService(
+        get(named(RETROFIT_UPDATE)),
+        WebUserRemoteSource::class.java)
+    }
+
     single<WebUpdateRepository> { WebUpdateRepositoryImpl(get()) }
+
+    single<WebUserRepository> { WebUserRepositoryImpl(get()) }
 }
