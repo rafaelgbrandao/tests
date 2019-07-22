@@ -20,18 +20,18 @@ class SplashViewModel(private val splashRepository: SplashRepository) : ViewMode
     fun noUpdateFound(): LiveData<Unit> = lvUpdateNotFound
     private val lvUpdateNotFound = MutableLiveData<Unit>()
 
-    fun onSearchForUpdate() {
+    suspend fun onSearchForUpdate() {
         when {
-            splashRepository.onSearchForUpdates() -> lvUpdateValues.value = Unit
-            else -> lvUpdateNotFound.value = Unit
+            splashRepository.onSearchForUpdates() -> lvUpdateValues.postValue(Unit)
+            else -> lvUpdateNotFound.postValue(Unit)
         }
     }
 
     fun onAppSuggestedVersionCheck() {
         when {
             BuildConfig.VERSION_CODE < splashRepository.onSearchForUpdateVersionNumber() ->
-                lvLastVersionNumber.value = Unit
-            else -> lvAppUpToDate.value = Unit
+                lvLastVersionNumber.postValue(Unit)
+            else -> lvAppUpToDate.postValue(Unit)
 
         }
     }

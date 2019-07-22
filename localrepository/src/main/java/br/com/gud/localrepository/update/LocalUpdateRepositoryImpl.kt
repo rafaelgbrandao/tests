@@ -9,6 +9,6 @@ class LocalUpdateRepositoryImpl(private val webWebUpdateRepository: WebUpdateRep
     }
 
     private fun getLastUpdateDate(): String {
-        return "2017-01-01"
+        return "2018-03-08 10:42:10"
     }
 }

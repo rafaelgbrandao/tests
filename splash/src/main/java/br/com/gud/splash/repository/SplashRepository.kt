@@ -4,5 +4,5 @@ interface SplashRepository {
 
     fun onSearchForUpdateVersionNumber(): Int
 
-    fun onSearchForUpdates(): Boolean
+    suspend fun onSearchForUpdates(): Boolean
 }

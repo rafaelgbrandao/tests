@@ -30,5 +30,4 @@ open class BaseFragment: Fragment() {
             isCancelable = isCancelable
         )
     }
-
 }

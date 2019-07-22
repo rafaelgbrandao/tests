@@ -11,6 +11,8 @@ import br.com.gud.navigation.Navigation
 import br.com.gud.navigation.NavigationClassNames
 import br.com.gud.splash.R
 import kotlinx.android.synthetic.main.fragment_splash.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SplashFragment: BaseFragment() {
@@ -49,12 +51,12 @@ class SplashFragment: BaseFragment() {
                 positiveButtonText = "Sim",
                 positiveButtonListener = { Toast.makeText(context, "Positive Click", Toast.LENGTH_LONG).show() },
                 negativeButtonText = "Não",
-                negativeButtonListener = { viewModel.onSearchForUpdate() }
+                negativeButtonListener = { GlobalScope.launch { viewModel.onSearchForUpdate() } }
             )
         }
 
         viewModel.appUpToDate().observe(this) {
-            viewModel.onSearchForUpdate()
+            GlobalScope.launch { viewModel.onSearchForUpdate() }
         }
 
         viewModel.noUpdateFound().observe(this) {

@@ -6,8 +6,8 @@ import retrofit2.http.POST
 
 interface WebUpdateRemoteSource {
 
-    @POST("Louvemos_cifrado/scripts/app_atualizacao.php")
+    @POST("Louvemos_cifrado/scripts/wb.php")
     fun getContentUpdate(
         @Body webUpdateRequestObject: WebUpdateRequestObject
-    ): Deferred<List<WebUpdateResponseObject>>
+    ): Deferred<Any>
 }
