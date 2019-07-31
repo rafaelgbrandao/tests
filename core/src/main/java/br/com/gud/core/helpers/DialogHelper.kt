@@ -1,4 +1,4 @@
-package br.com.gud.core.extensions
+package br.com.gud.core.helpers
 
 import android.content.Context
 import androidx.appcompat.app.AlertDialog

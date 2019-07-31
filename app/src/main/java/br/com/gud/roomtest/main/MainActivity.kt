@@ -2,6 +2,9 @@ package br.com.gud.roomtest.main
 
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.IdRes
+import androidx.annotation.IntegerRes
+import androidx.annotation.NavigationRes
 import androidx.navigation.findNavController
 import br.com.gud.core.base.BaseActivity
 import br.com.gud.roomtest.R
@@ -17,20 +20,16 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel.navigateToScreen().observe(this) { navObject ->
-            when (navObject.screen){
-                NavigationClassNames.FRAGMENT_HOME -> {
-                    findNavController(R.id.nav_host_fragment)
-                        .navigate(R.id.action_splashFragment_to_homeFragment)
-                }
-                NavigationClassNames.FRAGMENT_LOGIN -> {
-                    findNavController(R.id.nav_host_fragment)
-                        .navigate(R.id.action_splashFragment_to_loginFragment)
-                }
-                else -> {
-                    Log.v("Teste", "Ops...nenhuma tela selecionada")
-                }
+        viewModel.navigationFromLogin().observe(this) { isValidUser ->
+            when {
+                isValidUser -> navigateToScreen(R.id.action_splashFragment_to_homeFragment)
+                else -> navigateToScreen(R.id.action_splashFragment_to_loginFragment)
             }
         }
+    }
+
+    private fun navigateToScreen(@IdRes screen: Int) {
+        findNavController(R.id.nav_host_fragment)
+            .navigate(screen)
     }
 }

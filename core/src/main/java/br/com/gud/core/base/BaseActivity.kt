@@ -1,7 +1,7 @@
 package br.com.gud.core.base
 
 import androidx.appcompat.app.AppCompatActivity
-import br.com.gud.core.extensions.simpleAlertDialog
+import br.com.gud.core.helpers.simpleAlertDialog
 
 open class BaseActivity: AppCompatActivity() {
 
