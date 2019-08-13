@@ -3,6 +3,7 @@ package br.com.gud.splash.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.gud.core.base.BaseNavigation
 import br.com.gud.splash.BuildConfig
 import br.com.gud.splash.repository.SplashRepository
 
@@ -20,9 +21,6 @@ class SplashViewModel(private val splashRepository: SplashRepository) : ViewMode
     fun noUpdateFound(): LiveData<Unit> = lvUpdateNotFound
     private val lvUpdateNotFound = MutableLiveData<Unit>()
 
-    fun isUserValid(): LiveData<Boolean> = lvUserIsValid
-    private val lvUserIsValid = MutableLiveData<Boolean>()
-
     suspend fun onSearchForUpdate() {
         when {
             splashRepository.onSearchForUpdates() -> lvUpdateValues.postValue(Unit)
@@ -39,11 +37,14 @@ class SplashViewModel(private val splashRepository: SplashRepository) : ViewMode
         }
     }
 
-    fun onValidateUser(deviceId: String, appVersion: String) {
-        lvUserIsValid.postValue(
-            splashRepository.isUserValid(
-                appVersion = appVersion,
-                deviceId = deviceId
+    fun onValidateUser(className: String, deviceId: String, appVersion: String) {
+        BaseNavigation.lvNextFlow.postValue(
+            Pair(
+                className,
+                splashRepository.isUserValid(
+                    appVersion = appVersion,
+                    deviceId = deviceId
+                )
             )
         )
     }

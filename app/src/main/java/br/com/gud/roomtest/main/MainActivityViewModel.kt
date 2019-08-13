@@ -1,12 +1,14 @@
 package br.com.gud.roomtest.main
 
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import br.com.gud.navigation.Navigation
-import br.com.gud.splash.presentation.SplashViewModel
 
-class MainActivityViewModel(
-    private val splashViewModel: SplashViewModel
-): ViewModel() {
+class MainActivityViewModel(private val navigation: Navigation): ViewModel() {
 
-    fun navigationFromLogin() = splashViewModel.isUserValid()
+    fun navigationFromLogin() = navigation.lvSelectedScreen
+
+    fun initNavigation(lifecycleOwner: LifecycleOwner) {
+        navigation.initObservers(lifecycleOwner)
+    }
 }

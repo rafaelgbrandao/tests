@@ -37,7 +37,6 @@ dependencies {
     implementation generalDeps.coroutines
 
     implementation project(path: ':core')
-    implementation project(path: ':navigation')
     implementation project(path: ':localrepository')
     implementation project(path: ':webrepository')
 

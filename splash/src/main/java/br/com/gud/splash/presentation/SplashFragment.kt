@@ -64,6 +64,7 @@ class SplashFragment: BaseFragment() {
 
     private fun validateUser() {
         viewModel.onValidateUser(
+            className = SplashFragment()::class.java.name,
             deviceId = DeviceHelper.deviceId(context),
             appVersion = DeviceHelper.versionName(context)
         )
