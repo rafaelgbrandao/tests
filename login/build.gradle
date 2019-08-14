@@ -35,6 +35,7 @@ dependencies {
     implementation generalDeps.koin_kotlin
     implementation generalDeps.koin_viewmodel
     implementation generalDeps.coroutines
+    implementation generalDeps.kotlin
 
     implementation project(path: ':core')
     implementation project(path: ':localrepository')

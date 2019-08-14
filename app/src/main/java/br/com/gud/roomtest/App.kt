@@ -2,6 +2,7 @@ package br.com.gud.roomtest
 
 import android.app.Application
 import br.com.gud.localrepository.di.localRepositoryModule
+import br.com.gud.login.di.loginModule
 import br.com.gud.navigation.di.navigationModule
 import br.com.gud.roomtest.di.appModule
 import br.com.gud.splash.di.splashModule
@@ -15,6 +16,7 @@ class App: Application() {
         startKoin {
             modules(
                 listOf(
+                    loginModule,
                     splashModule,
                     navigationModule,
                     localRepositoryModule,

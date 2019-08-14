@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.gud.core.base.BaseNavigation
+import br.com.gud.core.models.NavigationObject
 import br.com.gud.splash.BuildConfig
 import br.com.gud.splash.repository.SplashRepository
 
@@ -15,7 +16,7 @@ class SplashViewModel(private val splashRepository: SplashRepository) : ViewMode
     fun appUpToDate(): LiveData<Unit> = lvAppUpToDate
     private val lvAppUpToDate = MutableLiveData<Unit>()
 
-    fun updateProgressValue(): LiveData<Unit> = lvUpdateValues
+    fun showUpdateProgress(): LiveData<Unit> = lvUpdateValues
     private val lvUpdateValues = MutableLiveData<Unit>()
 
     fun noUpdateFound(): LiveData<Unit> = lvUpdateNotFound
@@ -39,9 +40,9 @@ class SplashViewModel(private val splashRepository: SplashRepository) : ViewMode
 
     fun onValidateUser(className: String, deviceId: String, appVersion: String) {
         BaseNavigation.lvNextFlow.postValue(
-            Pair(
-                className,
-                splashRepository.isUserValid(
+            NavigationObject(
+                screen = className,
+                extras = splashRepository.isUserValid(
                     appVersion = appVersion,
                     deviceId = deviceId
                 )

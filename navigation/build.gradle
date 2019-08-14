@@ -2,13 +2,16 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply from: "../dependencies.gradle"
+apply from: "../version.gradle"
 
 android {
     compileSdkVersion 28
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        versionCode app.versionCode
+        versionName app.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -28,15 +31,18 @@ dependencies {
     implementation generalDeps.koin_androidx
     implementation generalDeps.koin_kotlin
     implementation generalDeps.koin_viewmodel
+    implementation generalDeps.kotlin
+
     implementation project(path: ':core')
+    implementation project(path: ':splash')
+    implementation project(path: ':login')
+    implementation project(path: ':home')
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation project(path: ':splash')
-    implementation project(path: ':login')
-    implementation project(path: ':home')
+
+
 }
 
 repositories {

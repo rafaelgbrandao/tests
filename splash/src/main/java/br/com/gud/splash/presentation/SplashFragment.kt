@@ -34,7 +34,7 @@ class SplashFragment: BaseFragment() {
 
     private fun startObservers() {
 
-        viewModel.updateProgressValue().observe(this) {
+        viewModel.showUpdateProgress().observe(this) {
             Toast.makeText(context, "Show Progress Update", Toast.LENGTH_LONG).show()
         }
 
