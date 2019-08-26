@@ -25,18 +25,16 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation generalDeps.appcompatx
-    implementation generalDeps.corex
-    implementation generalDeps.constraintlayout
-    implementation generalDeps.kotlin
 
     implementation project(path: ':core')
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation project(path: ':coreui')
     implementation project(path: ':navigation')
+
+    testImplementation testDeps.junit
+    androidTestImplementation testDeps.runner
+    androidTestImplementation testDeps.espresso
 }
+
 repositories {
     mavenCentral()
 }

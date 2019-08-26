@@ -27,22 +27,15 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation generalDeps.appcompatx
-    implementation generalDeps.corex
-    implementation generalDeps.constraintlayout
-    implementation generalDeps.koin_androidx
-    implementation generalDeps.koin_kotlin
-    implementation generalDeps.koin_viewmodel
-    implementation generalDeps.coroutines
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation project(path: ':core')
+    implementation project(path: ':coreui')
     implementation project(path: ':localrepository')
-    implementation project(path: ':webrepository')
     implementation project(path: ':navigation')
+    implementation project(path: ':webrepository')
+
+    testImplementation testDeps.junit
+    androidTestImplementation testDeps.runner
+    androidTestImplementation testDeps.espresso
 }
 
 repositories {

@@ -52,18 +52,14 @@ dependencies {
     implementation project(path: ':home')
     implementation project(path: ':login')
     implementation project(path: ':core')
+    implementation project(path: ':coreui')
     implementation project(path: ':localrepository')
     implementation project(path: ':webrepository')
 
-    implementation generalDeps.kotlin
-    implementation generalDeps.appcompatx
-    implementation generalDeps.corex
     implementation generalDeps.navigation
     implementation generalDeps.navigation_ui
-    implementation generalDeps.koin_androidx
-    implementation generalDeps.koin_kotlin
-    implementation generalDeps.koin_viewmodel
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    testImplementation testDeps.junit
+    androidTestImplementation testDeps.runner
+    androidTestImplementation testDeps.espresso
 }

@@ -21,7 +21,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
@@ -32,9 +31,6 @@ dependencies {
     api generalDeps.koin_kotlin
     api generalDeps.koin_viewmodel
     api generalDeps.kotlin
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha02'
+    api generalDeps.coroutines
+    api generalDeps.lifecycle
 }

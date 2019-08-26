@@ -8,7 +8,6 @@ android {
     compileSdkVersion app.compileSdkVersion
 
     defaultConfig {
-
         minSdkVersion app.minSdkVersion
         targetSdkVersion app.targetSdkVersion
         versionCode app.versionCode
@@ -28,14 +27,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(path: ':core')
-    implementation project(path: ':coreui')
-    implementation project(path: ':localrepository')
-    implementation project(path: ':navigation')
-    implementation project(path: ':webrepository')
-
-    testImplementation testDeps.junit
-    androidTestImplementation testDeps.runner
-    androidTestImplementation testDeps.espresso
-
+    api generalDeps.appcompatx
+    api generalDeps.corex
+    api generalDeps.constraintlayout
 }
