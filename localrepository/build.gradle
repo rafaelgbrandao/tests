@@ -28,7 +28,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(path: ':webrepository')
+    implementation project(path: ':remoterepository')
     implementation project(path: ':core')
 
     testImplementation testDeps.junit

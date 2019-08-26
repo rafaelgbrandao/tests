@@ -1,6 +1,6 @@
 package br.com.gud.webrepository.user
 
-interface WebUserRepository {
+interface UserRemoteRepository {
 
     fun isValidUser(appVersion: String, deviceId: String, email: String, userKey: String): Boolean
 }

@@ -15,8 +15,8 @@
             <option value="$PROJECT_DIR$/localrepository" />
             <option value="$PROJECT_DIR$/login" />
             <option value="$PROJECT_DIR$/navigation" />
+            <option value="$PROJECT_DIR$/remoterepository" />
             <option value="$PROJECT_DIR$/splash" />
-            <option value="$PROJECT_DIR$/webrepository" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

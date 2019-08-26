@@ -2,7 +2,7 @@ package br.com.gud.webrepository.user
 
 import com.google.gson.annotations.SerializedName
 
-data class WebUserRequestObject(
+data class UserRequestObject(
     @SerializedName("chave") val userKey: String,
     @SerializedName("email") val email: String,
     @SerializedName("geral") val param: String,

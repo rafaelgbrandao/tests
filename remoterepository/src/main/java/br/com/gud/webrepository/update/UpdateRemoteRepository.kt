@@ -1,6 +1,6 @@
 package br.com.gud.webrepository.update
 
-interface WebUpdateRepository {
+interface UpdateRemoteRepository {
 
     suspend fun getContentUpdate(lastUpdateDate: String): List<String>
 }

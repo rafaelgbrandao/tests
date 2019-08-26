@@ -1,11 +1,11 @@
 package br.com.gud.localrepository.user
 
-import br.com.gud.webrepository.user.WebUserRepository
+import br.com.gud.webrepository.user.UserRemoteRepository
 
-class LocalUserRepositoryImpl(private val webUserRepository: WebUserRepository): LocalUserRepository {
+class LocalUserRepositoryImpl(private val userRemoteRepository: UserRemoteRepository): LocalUserRepository {
 
     override fun isUserValid(appVersion: String, deviceId: String): Boolean {
-        return webUserRepository.isValidUser(
+        return userRemoteRepository.isValidUser(
             appVersion = appVersion,
             deviceId = deviceId,
             userKey = "12wer",

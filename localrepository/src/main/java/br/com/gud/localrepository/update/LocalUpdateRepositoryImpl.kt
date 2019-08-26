@@ -1,11 +1,11 @@
 package br.com.gud.localrepository.update
 
-import br.com.gud.webrepository.update.WebUpdateRepository
+import br.com.gud.webrepository.update.UpdateRemoteRepository
 
-class LocalUpdateRepositoryImpl(private val webWebUpdateRepository: WebUpdateRepository): LocalUpdateRepository {
+class LocalUpdateRepositoryImpl(private val webUpdateRemoteRepository: UpdateRemoteRepository): LocalUpdateRepository {
 
     override suspend fun getContentUpdate(): Boolean {
-        return webWebUpdateRepository.getContentUpdate(getLastUpdateDate()).isNotEmpty()
+        return webUpdateRemoteRepository.getContentUpdate(getLastUpdateDate()).isNotEmpty()
     }
 
     private fun getLastUpdateDate(): String {

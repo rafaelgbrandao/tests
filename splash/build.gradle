@@ -31,7 +31,7 @@ dependencies {
     implementation project(path: ':coreui')
     implementation project(path: ':localrepository')
     implementation project(path: ':navigation')
-    implementation project(path: ':webrepository')
+    implementation project(path: ':remoterepository')
 
     testImplementation testDeps.junit
     androidTestImplementation testDeps.runner

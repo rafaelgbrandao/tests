@@ -54,7 +54,7 @@ dependencies {
     implementation project(path: ':core')
     implementation project(path: ':coreui')
     implementation project(path: ':localrepository')
-    implementation project(path: ':webrepository')
+    implementation project(path: ':remoterepository')
 
     implementation generalDeps.navigation
     implementation generalDeps.navigation_ui

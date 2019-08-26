@@ -3,7 +3,7 @@ package br.com.gud.webrepository.user
 import android.os.Build
 import kotlinx.coroutines.runBlocking
 
-class WebUserRepositoryImpl(private val userRemoteSource: WebUserRemoteSource): WebUserRepository {
+class UserRemoteRepositoryImpl(private val userRemoteSource: UserRemoteSource): UserRemoteRepository {
 
     override fun isValidUser(
         appVersion: String,
@@ -13,7 +13,7 @@ class WebUserRepositoryImpl(private val userRemoteSource: WebUserRemoteSource): 
     ): Boolean {
         runBlocking {
             val user = userRemoteSource.isValidUser(
-                WebUserRequestObject(
+                UserRequestObject(
                     userKey = userKey,
                     email = email,
                     param = "valida_usuario",

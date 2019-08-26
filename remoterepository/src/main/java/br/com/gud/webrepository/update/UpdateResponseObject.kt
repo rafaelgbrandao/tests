@@ -3,7 +3,7 @@ package br.com.gud.webrepository.update
 import br.com.gud.webrepository.model.*
 import com.google.gson.annotations.SerializedName
 
-data class WebUpdateResponseObject(
+data class UpdateResponseObject(
     @SerializedName("info") val error: List<DServerError>,
     @SerializedName("Acordes") val chordsList: List<DChords>,
     @SerializedName("Audios") val audioList: List<DAudio>,
