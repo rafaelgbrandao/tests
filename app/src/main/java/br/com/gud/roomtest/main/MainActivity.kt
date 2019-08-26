@@ -15,8 +15,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel.initNavigation(this)
-        viewModel.navigationFromLogin().observe(this) { navigationObject ->
+        viewModel.navigationToScreen().observe(this) { navigationObject ->
             navigateToScreen(navigationObject.screen)
         }
     }

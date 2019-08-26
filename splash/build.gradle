@@ -42,6 +42,7 @@ dependencies {
     implementation project(path: ':core')
     implementation project(path: ':localrepository')
     implementation project(path: ':webrepository')
+    implementation project(path: ':navigation')
 }
 
 repositories {

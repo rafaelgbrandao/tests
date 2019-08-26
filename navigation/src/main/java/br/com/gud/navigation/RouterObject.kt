@@ -2,7 +2,7 @@ package br.com.gud.navigation
 
 import androidx.annotation.IdRes
 
-data class NavigationObject(
+data class RouterObject(
     @IdRes val screen: Int,
-    val extras: Map<Any, Any> = mapOf()
+    val extras: Pair<String, Any>?
 )

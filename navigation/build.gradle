@@ -5,7 +5,7 @@ apply from: "../dependencies.gradle"
 apply from: "../version.gradle"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion app.compileSdkVersion
 
     defaultConfig {
         minSdkVersion app.minSdkVersion
@@ -34,9 +34,6 @@ dependencies {
     implementation generalDeps.kotlin
 
     implementation project(path: ':core')
-    implementation project(path: ':splash')
-    implementation project(path: ':login')
-    implementation project(path: ':home')
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

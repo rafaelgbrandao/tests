@@ -1,14 +1,9 @@
 package br.com.gud.roomtest.main
 
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
-import br.com.gud.navigation.Navigation
+import br.com.gud.navigation.Router
 
-class MainActivityViewModel(private val navigation: Navigation): ViewModel() {
+class MainActivityViewModel(private val router: Router): ViewModel() {
 
-    fun navigationFromLogin() = navigation.lvSelectedScreen
-
-    fun initNavigation(lifecycleOwner: LifecycleOwner) {
-        navigation.initObservers(lifecycleOwner)
-    }
+    fun navigationToScreen() = router.lvSelectedScreen
 }
